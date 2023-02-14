@@ -3,6 +3,7 @@ import Page404 from "../pages/404";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
+import ProtectedRoutes from "../pages/ProtectedRoutes";
 import PublicRoutes from "../pages/PublicRoutes";
 import RegisterPage from "../pages/RegisterPage";
 
@@ -10,13 +11,16 @@ const AppRoutes = () => {
    return (
       <Routes>
          <Route path="/" element={<PublicRoutes />}>
-            <Route path="/" element={<HomePage />} />
+            <Route index element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<Page404 />} />
          </Route>
 
-         <Route path="/profile" element={<ProfilePage />} />
+         <Route path="/profile" element={<ProtectedRoutes />}>
+            <Route index element={<ProfilePage />} />
+         </Route>
+         
       </Routes>
    );
 };
