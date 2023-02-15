@@ -6,8 +6,6 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
    const navigate = useNavigate();
-
-   console.log(window.location.pathname);
    /* null, objeto */
    // um para vários (Global)
    const [user, setUser] = useState(null);

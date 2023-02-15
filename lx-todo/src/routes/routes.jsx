@@ -6,6 +6,7 @@ import ProfilePage from "../pages/ProfilePage";
 import ProtectedRoutes from "../pages/ProtectedRoutes";
 import PublicRoutes from "../pages/PublicRoutes";
 import RegisterPage from "../pages/RegisterPage";
+import { TodosProvider } from "../providers/TodosContext";
 
 const AppRoutes = () => {
    return (
@@ -18,9 +19,15 @@ const AppRoutes = () => {
          </Route>
 
          <Route path="/profile" element={<ProtectedRoutes />}>
-            <Route index element={<ProfilePage />} />
+            <Route
+               index
+               element={
+                  <TodosProvider>
+                     <ProfilePage />
+                  </TodosProvider>
+               }
+            />
          </Route>
-         
       </Routes>
    );
 };
