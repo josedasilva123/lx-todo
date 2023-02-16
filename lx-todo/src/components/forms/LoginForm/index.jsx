@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { UserContext } from '../../../providers/UserContext';
+import InputPassword from '../InputPassword';
 
 const LoginForm = () => {
   const { userLogin } = useContext(UserContext);
@@ -15,7 +16,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(submit)}>
         <input type="text" placeholder="Seu e-mail" {...register("email")} />
-        <input type="password" placeholder="Sua senha" {...register("password")} />
+        <InputPassword id="password" placeholder="Sua senha" register={register("password")} />
         <button type="submit">Entrar</button>
     </form>
   )

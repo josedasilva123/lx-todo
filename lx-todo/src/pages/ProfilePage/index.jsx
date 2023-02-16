@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import TodosCreateForm from '../../components/forms/TodosCreateForm';
 import TodosUpdateForm from '../../components/forms/TodosUpdateForm';
 import { TodosContext } from '../../providers/TodosContext';
@@ -17,6 +18,8 @@ const ProfilePage = () => {
         <h2>{user.name}</h2>
         <p>{user.email}</p>
       </main>
+
+      <Link to="/profile/categories">Gerenciar categorias</Link>
 
       {editingNote ? <TodosUpdateForm />: null}
 

@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react'
-import { Outlet, useNavigate, Navigate } from "react-router-dom";
+import React, { useContext } from 'react'
+import { Outlet, Navigate } from "react-router-dom";
+import { CategoriesProvider } from '../../providers/CategoriesContext';
 import { UserContext } from '../../providers/UserContext';
 
 const ProtectedRoutes = () => {
@@ -14,12 +15,13 @@ const ProtectedRoutes = () => {
     }
   }, [])
   */
+
   window.location.pathname;
 
   return (
-    <>
+    <CategoriesProvider>
         {user ? <Outlet />: <Navigate to="/" />}
-    </>
+    </CategoriesProvider>
   )
 }
 

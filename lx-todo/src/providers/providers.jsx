@@ -1,12 +1,13 @@
-import React from 'react'
-import { UserProvider } from './UserContext'
+import React from "react";
+import { DarkModeProvider } from "./DarkModeContext";
+import { UserProvider } from "./UserContext";
 
-const Providers = ({children}) => {
-  return (
-    <UserProvider>
-        {children}
-    </UserProvider>
-  )
-}
+const Providers = ({ children }) => {
+   return (
+      <UserProvider>
+         <DarkModeProvider>{children}</DarkModeProvider>
+      </UserProvider>
+   );
+};
 
-export default Providers
+export default Providers;

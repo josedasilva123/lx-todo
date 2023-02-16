@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import Page404 from "../pages/404";
+import CategoriesPage from "../pages/CategoriesPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
 import ProtectedRoutes from "../pages/ProtectedRoutes";
 import PublicRoutes from "../pages/PublicRoutes";
 import RegisterPage from "../pages/RegisterPage";
+import { CategoriesProvider } from "../providers/CategoriesContext";
 import { TodosProvider } from "../providers/TodosContext";
 
 const AppRoutes = () => {
@@ -27,6 +29,7 @@ const AppRoutes = () => {
                   </TodosProvider>
                }
             />
+            <Route path="/profile/categories" element={<CategoriesPage />} />
          </Route>
       </Routes>
    );

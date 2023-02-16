@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { CategoriesContext } from "../../../providers/CategoriesContext";
 import { TodosContext } from "../../../providers/TodosContext";
 
 const TodosUpdateForm = () => {
    const { editingNote, setEditingNote } = useContext(TodosContext);
+   const { categories } = useContext(CategoriesContext);
 
    const { register, handleSubmit } = useForm({
       defaultValues: {
@@ -24,7 +26,14 @@ const TodosUpdateForm = () => {
             <h2>Atualize uma nota:</h2>
             <input type="text" {...register("title")} placeholder="Título" />
             <input type="text" {...register("content")} placeholder="Conteúdo" />
-            <input type="text" {...register("category")} placeholder="Categoria" />
+            <select {...register("category")}>
+               <option value="">Selecione uma categoria</option>
+               {categories.map((category) => (
+                  <option key={category._id} value={category.slug}>
+                     {category.label}
+                  </option>
+               ))}
+            </select>
             <button type="submit">Atualizar nota</button>
          </form>
       </div>

@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../../providers/DarkModeContext";
 
 const DefaultTemplate = ({ children }) => {
+   const { setDarkMode } = useContext(DarkModeContext);
    return (
       <>
          <header>
@@ -19,6 +22,7 @@ const DefaultTemplate = ({ children }) => {
             </nav>
          </header>
          <main>{children}</main>
+         <button onClick={() => setDarkMode((darkMode) => darkMode === "TRUE" ? "FALSE" : "TRUE")}>Alterar tema</button>
       </>
    );
 };
